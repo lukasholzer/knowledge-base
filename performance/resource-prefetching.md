@@ -31,6 +31,14 @@ Downloads all assets from the specified webpage.
 
 ## Pre-load
 
+Preloads a certain resource that might be referenced through javascript in an earlier point of time.
+Can even be uses for fonts and images
+
+Link to the [MDN Preload] reference.
+
 ```html
 <link rel="preload" href="main.js" as="script">
 ```
+
+
+[MDN Preload](https://developer.mozilla.org/en-US/docs/Web/HTML/Preloading_content)
