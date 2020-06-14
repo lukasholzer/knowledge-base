@@ -1,5 +1,6 @@
-
-# Anatomy of the bazel rule
+# Writing Bazel rules
+ 
+## Anatomy of the bazel rule
 
 The rule consists out of an implementation and attributes.
 
@@ -16,8 +17,13 @@ my_rule = rule(
     },
 ```
 
+## Macros in combination with Rules
 
-# Copy Files with macro
+Often it is handy to wrap a rule in a macro to abstract some defaults away from your consumer.
+This may help as well with copying files as it is not possible to copy files inside a rule.
+
+You can only create new files in a rules but with a macro you can leverage the `copy_to_bin` rule
+and chain multiple rules like here.
 
 
 ```python
@@ -40,4 +46,4 @@ def my_rule_macro(name = "default", deps = [], **kwargs):
 
 ```
 
-# How to traverse with aspects
+## How to traverse with aspects
