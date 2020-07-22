@@ -1,9 +1,12 @@
 # Performance
 
+- [Performance](#performance)
+  - [Measuring performance with profiling](#measuring-performance-with-profiling)
+    - [When analyzing these kind of profiles look for the following:](#when-analyzing-these-kind-of-profiles-look-for-the-following)
+
 ## Measuring performance with profiling
 
-By Default bazel is generating a performance profile for each run that can be inspected with the 
-Chrome tracing API.
+By Default bazel is generating a performance profile for each run that can be inspected with the Chrome tracing API.
 
 The resulting file is located by default under `$(bazel info output_base)/command.profile.gz`. The location can be configured by passing `--profile=<path>` to the command.
 

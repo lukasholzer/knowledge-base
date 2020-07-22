@@ -1,5 +1,10 @@
 # Patching
 
+- [Patching](#patching)
+  - [Patching bazel repositories](#patching-bazel-repositories)
+  - [Patching bazel files that are managed through npm](#patching-bazel-files-that-are-managed-through-npm)
+    - [Sample patch for an npm package](#sample-patch-for-an-npm-package)
+
 > This section is for all of you that are living on the bleeding edge 💉
 
 Often it is necessary to patch a small use case for a repository as they have not released, or a fix you have already created a Pull-Request for with the desired fix.
