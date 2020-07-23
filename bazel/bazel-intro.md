@@ -36,20 +36,20 @@ The WORKSPACE file contains:
     + References to third party rules (TODO: Link to rules) and definitions of third party repositories (TODO Link to repo section)
     + Init actions to setup the workspace (setup toolchains for builds)
 
-Further reading: [The Bazel Docs](https://docs.bazel.build/versions/3.4.0/build-ref.html#workspace)
+**Further reading: [The Bazel Docs](https://docs.bazel.build/versions/3.4.0/build-ref.html#workspace)**
 
 ### Repositories
 
 Code is organized in repositories. The root of the workspace marks the root of the so called 'main repository'. There are also third party repositories that can be referenced.
 
-Further reading: [The Bazel Docs](https://docs.bazel.build/versions/3.4.0/build-ref.html#workspace)
+**Further reading: [The Bazel Docs](https://docs.bazel.build/versions/3.4.0/build-ref.html#workspace)**
 
 ### Packages
 
 The main building blocks of a Bazel build are called *Packages*
 Packages must reside in a Workspace. Packages are effectively a group of files that logically belong together (Angular module for example) throughout multiple sub folders. Every package is marked by a file called BUILD.bazel or BUILD.bzl. Every package can contain multiple targets (TODO link to targets section locally)
 
-Further reading: [The Bazel Docs](https://docs.bazel.build/versions/3.4.0/build-ref.html#packages)
+**Further reading: [The Bazel Docs](https://docs.bazel.build/versions/3.4.0/build-ref.html#packages)**
 
 ### Targets
 
@@ -60,7 +60,7 @@ Examples of typical targets are: Compile, Test, Assemble, Lint
 
 Targets do only point to files of the surrounding package and are referenced via the package it is located in.
 
-Further reading: [The Bazel Docs](https://docs.bazel.build/versions/3.4.0/build-ref.html#targets)
+**Further reading: [The Bazel Docs](https://docs.bazel.build/versions/3.4.0/build-ref.html#targets)**
 
 ### Rules
 
@@ -74,7 +74,9 @@ Binary rules: Builds some sort of executables that can later be executed using `
 
 Test rules: Are a special kind of binary rules
 
-Further reading: [The Bazel Docs](https://docs.bazel.build/versions/3.4.0/build-ref.html#rules)
+Library rules: This kind of rules is to compile/build software modules 
+
+**Further reading: [The Bazel Docs](https://docs.bazel.build/versions/3.4.0/build-ref.html#rules)**
 
 ### Labels
 
@@ -141,9 +143,25 @@ This would invoke the compile target in the button package.
 
 If you want to reference a target that is in the current package you can simply use `:compile`
 
-Further reading: [The Bazel Docs](https://docs.bazel.build/versions/3.4.0/build-ref.html#labels)
+**Further reading: [The Bazel Docs](https://docs.bazel.build/versions/3.4.0/build-ref.html#labels)**
 
 ## Authoring Bazel Builds
 
-As mentioned above, every Bazel package has its according BUILD.bazel file. This section is dedicated to authoring such BUILD files as they are the essential parts of every Bazel build.
+As mentioned above, every Bazel package has its according BUILD.bazel file. This section is dedicated to authoring such BUILD files as they are the essential parts of every Bazel build. Bazel builds are authored using Starlark which is a subset of Python. 
+
+### Imports
+
+In order to use rules you need to import them into your package. This is done via the load statement:
+
+```python
+load("//foo/bar:file.bzl", "some_rule", "some_other_rule")
+```
+ You can import from the local repository as well as third party repositories using the label notation.
+
+
+ ### Dependencies
+
+ Dependencies are fundamental elements of every Bazel build. Please do carefully read the official Bazel docs regarding dependencies:
+
+**[The Bazel Docs explaining Dependencies](https://docs.bazel.build/versions/3.4.0/build-ref.html#dependencies)**
 
