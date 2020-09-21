@@ -36,6 +36,8 @@ You can create a patch by performing following actions:
 5. remove the `a/` and `b/` occurrences in the paths.
 6. place the generated file into the repository and check it in
 
+**NOTE**: If you add files they won't occur in the diff as they are untracked. In this case just add all files with `git add .` and then run `git diff --cached  > ~/path/to/your-patch-file.patch`. 
+
 A patch file can look like this:
 
 ```patch
