@@ -13,6 +13,8 @@
       - [Traversing packages](#traversing-packages)
       - [Specifying targets](#specifying-targets)
   - [Authoring Bazel Builds](#authoring-bazel-builds)
+    - [Imports](#imports)
+    - [Dependencies](#dependencies)
 
 ## What is Bazel actually
 

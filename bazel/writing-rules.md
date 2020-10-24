@@ -1,5 +1,11 @@
 # Writing Bazel rules
 
+- [Writing Bazel rules](#writing-bazel-rules)
+  - [Concepts in Bazel](#concepts-in-bazel)
+    - [Structs](#structs)
+  - [Anatomy of the bazel rule](#anatomy-of-the-bazel-rule)
+  - [Macros in combination with Rules](#macros-in-combination-with-rules)
+
 To write custom rules in bazel we need to get some concepts like structs, providers and depsets
 
 ## Concepts in Bazel
@@ -77,5 +83,3 @@ def my_rule_macro(name = "default", deps = [], **kwargs):
     )
 
 ```
-
-## How to traverse with aspects

@@ -1,5 +1,11 @@
 # Bazel query
 
+- [Bazel query](#bazel-query)
+  - [Query for a macro](#query-for-a-macro)
+  - [Run a Query Output](#run-a-query-output)
+  - [Generating a dependency tree out of a query](#generating-a-dependency-tree-out-of-a-query)
+    - [Finding all target that depend on a other target](#finding-all-target-that-depend-on-a-other-target)
+
 The bazel query is used to query the dependency tree. The reference on the syntax of the query language can be found [here][1].
 
 ## Query for a macro

@@ -1,4 +1,11 @@
-# Bazel locations, workspaces and repositories
+# Bazel Folder Structure
+
+- [Bazel Folder Structure](#bazel-folder-structure)
+  - [Bazel home](#bazel-home)
+  - [Bazel out](#bazel-out)
+  - [Bazel external folders](#bazel-external-folders)
+  - [npm_modules:](#npm_modules)
+
 
 ## Bazel home
 

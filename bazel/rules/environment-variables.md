@@ -2,7 +2,7 @@
 
 Add your environment variables or secrets to the .bazelrc file
 
-```
+```bash
 build --action_env=MY_ENV_VARIABLE=the-value-of-it
 ```
 
