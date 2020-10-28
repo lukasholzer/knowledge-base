@@ -3,6 +3,7 @@
 - [Writing Bazel rules](#writing-bazel-rules)
   - [Concepts in Bazel](#concepts-in-bazel)
     - [Structs](#structs)
+    - [Providers](#providers)
   - [Anatomy of the bazel rule](#anatomy-of-the-bazel-rule)
   - [Macros in combination with Rules](#macros-in-combination-with-rules)
 
@@ -37,6 +38,35 @@ struct(key=123).to_json()
 ```
 
 https://docs.bazel.build/versions/master/skylark/lib/struct.html
+
+### Providers
+
+Providers can be understood like a label to identify a specific content that was stored by a dependency. 
+Think about a post office that needs to identify the packages to deliver them correctly. The provider would be the label on the package.
+
+You can use already defined providers to get specific information like accessing the type declaration information of your dependency.
+
+```python
+load("@build_bazel_rules_nodejs//:providers.bzl", "DeclarationInfo")
+
+# Loop inside your rule over the dependencies and collect the type declarations.
+for dep in ctx.attr.deps:
+    if DeclarationInfo in dep:
+        print(dep[DeclarationInfo].declarations.to_list())
+```
+
+But you can create your own providers as well, the most common use case would be if you are writing an aspect to collect specific data.
+You can read more about on the [aspects page](./aspects.md). 
+
+```python
+# Mark that the naming convention of a provider is to end with `Info`
+CustomProviderInfo = provider(
+  fields = {
+    # specify a list of fields that a provider can have like the dependencies field on the DeclarationInfo provider
+    'my_field': 'Holds custom information'
+  }
+)
+```
 
 ## Anatomy of the bazel rule
 
