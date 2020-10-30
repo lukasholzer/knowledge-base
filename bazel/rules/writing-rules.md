@@ -1,5 +1,11 @@
 # Writing Bazel rules
 
+First of all I might need to mention that writing a custom rule should be the last solution on trying to get a package managed by bazel. Always try to use existing rules for your problem. If there is no exisitng rule try to leverage a CLI tool that can be wrapped by a macro.
+
+Writing a rule is needed if you have to collect different parts of your dependencies and massage them into a format that your tool can understand it.
+
+For testing reasons I always can recommend putting as less logic as possible inside Starlark rules and try to create small nodejs helper tools that are doing the job for you.
+
 - [Writing Bazel rules](#writing-bazel-rules)
   - [Concepts in Bazel](#concepts-in-bazel)
     - [Structs](#structs)
